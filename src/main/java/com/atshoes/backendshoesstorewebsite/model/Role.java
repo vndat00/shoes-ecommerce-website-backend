@@ -1,6 +1,8 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +27,7 @@ public class Role {
     @Column
     private boolean delete_flg;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
     private List<RoleUser> roleUsers = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -60,12 +61,15 @@ public class Shoes {
     @Column
     private boolean ready_flg;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "shoes", cascade = CascadeType.ALL)
     private List<Warehouse> warehouses = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "shoes", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "shoes", cascade = CascadeType.ALL)
     private List<ShoppingCartDetail> shoppingCartDetails = new ArrayList<>();
 

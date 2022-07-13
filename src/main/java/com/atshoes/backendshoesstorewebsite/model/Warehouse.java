@@ -1,6 +1,7 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
 import com.atshoes.backendshoesstorewebsite.model.compositekey.WarehouseKey;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Warehouse {
     @JoinColumn(name = "shoes_id")
     private Shoes shoes;
 
+    @JsonIgnore
     @ManyToOne
     @MapsId("sizeId")
     @JoinColumn(name = "size_id")

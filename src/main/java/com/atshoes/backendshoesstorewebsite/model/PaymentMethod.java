@@ -1,5 +1,6 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +26,7 @@ public class PaymentMethod {
     @Column
     private boolean delete_flg;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentMethod")
     private List<Order> orders = new ArrayList<>();
 }

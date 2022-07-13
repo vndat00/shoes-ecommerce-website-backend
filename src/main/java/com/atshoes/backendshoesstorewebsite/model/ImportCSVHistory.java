@@ -1,9 +1,14 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -31,5 +36,9 @@ public class ImportCSVHistory {
 
     @Column
     private boolean delete_flg;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "importCSVHistory")
+    private List<DetailHistory> detailHistories = new ArrayList<>();
 
 }

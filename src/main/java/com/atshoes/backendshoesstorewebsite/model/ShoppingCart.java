@@ -1,5 +1,6 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class ShoppingCart {
     @Column( name = "shopping_cart_id")
     private int shippingCartId;
 
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn( name = "user_id", referencedColumnName = "user_id")
     private User user;

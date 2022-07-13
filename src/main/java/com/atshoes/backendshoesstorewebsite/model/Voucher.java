@@ -1,5 +1,6 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,6 +40,7 @@ public class Voucher {
     @Column
     private boolean delete_flg;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "voucher")
     private List<Order> orders = new ArrayList<>();
 

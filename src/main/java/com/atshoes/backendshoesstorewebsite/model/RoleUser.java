@@ -1,6 +1,7 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
 import com.atshoes.backendshoesstorewebsite.model.compositekey.RoleUserKey;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,6 +22,7 @@ public class RoleUser {
     @JoinColumn( name = "role_id")
     private Role role;
 
+    @JsonIgnore
     @ManyToOne
     @MapsId("userId")
     @JoinColumn(name = "user_id")

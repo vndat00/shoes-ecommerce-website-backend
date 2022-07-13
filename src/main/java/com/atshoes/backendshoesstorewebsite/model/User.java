@@ -1,5 +1,6 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -32,12 +33,15 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL )
     private List<Order> orders = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<ImportCSVHistory> importCSVHistories = new ArrayList<>();
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private TraceLog traceLog;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "user")
     private ShoppingCart shoppingCart;
 

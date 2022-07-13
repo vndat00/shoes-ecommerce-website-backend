@@ -1,6 +1,7 @@
 package com.atshoes.backendshoesstorewebsite.model;
 
 import com.atshoes.backendshoesstorewebsite.model.compositekey.OrderDetailKey;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,6 +21,7 @@ public class OrderDetail {
     @JoinColumn(name = "shoes_id")
     private Shoes shoes;
 
+    @JsonIgnore
     @ManyToOne
     @MapsId("orderId")
     @JoinColumn(name = "order_id")
